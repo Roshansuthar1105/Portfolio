@@ -935,6 +935,10 @@ textarea {
     font-size: 20px;
     padding: 10px 20px;
   }
+  .p-heading{
+    top: 0px;
+    visibility: visible;
+  }
   .aboutme-content {
     flex-wrap: wrap;
   }
