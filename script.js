@@ -65,7 +65,6 @@ menuButton.addEventListener("click", () => {
       navlist[i].style.display = "none";
     }
     menuButton.style.display = "flex";
-    
   }, 3000);
 });
 let sections = document.querySelectorAll(".section");
@@ -100,3 +99,215 @@ window.addEventListener("change", () => {
   console.log("width is ", window.innerWidth);
 });
 console.log("width is ", window.innerWidth);
+//animations
+
+function page1() {
+  var tl = gsap.timeline();
+  tl.from(".social-icon", {
+    x: -300,
+    duration: 0.5,
+    stagger: 0.1,
+    opacity: 0,
+    ease: "none",
+  });
+  tl.from(".heading.m", {
+    opacity: 0,
+    y: -200,
+    duration: 0.3,
+  });
+  tl.from(".proffesion.m", {
+    y: -80,
+    opacity: 0,
+    duration: 0.3,
+  });
+  tl.from(".about-me", {
+    opacity: 0,
+    x: -80,
+    duration: 0.2,
+  });
+  tl.to(".btn111", {
+    opacity: 1,
+    duration: 0.8,
+  });
+  tl.from(
+    ".profileImg",
+    {
+      opacity: 0,
+      x: 100,
+      duration: 2,
+      ease: "elastic.out",
+    },
+    "-=1"
+  );
+  tl.from(".scroll-down", {
+    opacity: 0,
+    y: -30,
+    duration: 0.2,
+    ease: "elastic.out",
+  });
+}
+// page1();
+function page2() {
+  var tl = gsap.timeline();
+  tl.from("#about-me-page .page-heading", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: ".page-heading",
+      scrub: 2,
+      start: "top 50%",
+      end: "top 20%",
+    },
+    x: -200,
+    opacity: 0,
+  });
+  tl.from("#about-me-page .page-subheading", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: ".page-subheading",
+      scrub: 2,
+      start: "top 50%",
+      end: "top 20%",
+    },
+    x: 300,
+    opacity: 0,
+  });
+
+  tl.from(".ab-left img", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: ".ab-left img",
+      scrub: 2,
+      start: "top 80%",
+      end: "top 30%",
+    },
+    opacity: 0,
+    borderRadius: "80px",
+    scale: 0.7,
+  });
+  tl.from(".ab-right", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: ".ab-right",
+      scrub: 2,
+      start: "top 70%",
+      end: "top 30%",
+    },
+    opacity: 0,
+  });
+}
+function page3() {
+  gsap.from(".skills.page-heading", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: ".skills.page-heading",
+      scrub: 2,
+      start: "top 80%",
+      end: "top 60%",
+    },
+    x: -200,
+    opacity: 0,
+  });
+  gsap.from(".skills.page-subheading", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: ".skills.page-subheading",
+      scrub: 2,
+      start: "top 80%",
+      end: "top 60%",
+    },
+    x: 300,
+    opacity: 0,
+  });
+  gsap.from(".l .skill", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: ".l .skill",
+      scrub: 2,
+      start: "top 90%",
+      end: "top 50%",
+    },
+    x: -300,
+    opacity: 0,
+    stagger: 0.3,
+  });
+  gsap.from(".r .skill", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: ".r .skill",
+      scrub: 2,
+      start: "top 90%",
+      end: "top 50%",
+    },
+    x: 300,
+    opacity: 0,
+    stagger: 0.3,
+  });
+  gsap.from(".technologies img", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: ".technologies img",
+      scrub: 2,
+      start: "top 90%",
+      end: "top 50%",
+      // markers:true
+    },
+    rotateX: "30deg",
+    opacity: 0,
+  });
+}
+// page1();
+// page2();
+// page3();
+function page4() {
+  gsap.from(".portf .page-heading", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: ".portf .page-heading",
+      scrub: 2,
+      start: "top 80%",
+      end: "top 60%",
+    },
+    x: -200,
+    opacity: 0,
+  });
+  gsap.from(".portf .page-subheading", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: ".portf .page-subheading",
+      scrub: 2,
+      start: "top 80%",
+      end: "top 60%",
+    },
+    x: 300,
+    opacity: 0,
+  });
+  gsap.from('.portfolio-btns',{
+    scrollTrigger: {
+      scroller: "body",
+      trigger: ".portfolio-btns .list",
+      scrub: 2,
+      start: "top 80%",
+      end: "top 40%",
+      // markers:true
+    },
+    y:-30,
+    x:-50,
+    opacity: 0,
+    stagger:0.3,
+    ease:"none"
+  })
+  gsap.from('.p-card',{
+    scrollTrigger: {
+      scroller: "body",
+      trigger: ".portfolio-btns .list",
+      scrub: 2,
+      start: "top 80%",
+      end: "top 40%",
+      markers:true
+    },
+    rotateY:'90deg',
+    stagger:1,
+    duration:2
+  })
+}
+page4();

@@ -23,6 +23,7 @@
   cursor: default;
 }
 body {
+  overflow-x: hidden;
   cursor: url("Sources/arrow.png");
 }
 ::-webkit-scrollbar-thumb {
@@ -291,8 +292,9 @@ img {
   display: flex;
   align-items: center;
   width: fit-content;
-  transition: all 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
   box-shadow: 10px 10px 0px #999;
+  opacity: 0;
 }
 .send:hover {
   background-color: var(--black);
@@ -381,8 +383,9 @@ img {
 .ab-left > img {
   width: 500px;
   height: 500px;
-  animation: img-size linear;
-  animation-timeline: view();
+  border-radius: 20px;
+  /* animation: img-size linear; */
+  /* animation-timeline: view(); */
 }
 @keyframes img-size {
   from {
@@ -767,6 +770,12 @@ textarea {
   border: 2px solid #ddd;
   width: calc(100% - 20px);
   resize: none;
+}
+.cv-btn{
+  opacity: 1;
+}
+.s-cont{
+  overflow-x: hidden;
 }
 /* for devices width   */
 @media screen and (max-width: 1024px) {
