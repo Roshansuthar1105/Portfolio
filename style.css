@@ -352,6 +352,7 @@ img {
   flex-wrap: wrap;
   min-height: 100dvh;
   background-color: var(--background);
+  overflow-x: hidden;
 }
 .page-text-content {
   display: flex;
@@ -420,6 +421,7 @@ img {
   min-height: 100dvh;
   flex-direction: column;
   background-color: var(--background);
+  overflow-x: hidden;
 }
 .skills-container {
   display: flex;
@@ -513,6 +515,7 @@ img {
   flex-wrap: wrap;
   min-height: 100dvh;
   background-color: var(--background);
+  overflow-x: hidden;
 }
 .project-container {
   display: flex;
