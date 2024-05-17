@@ -255,9 +255,7 @@ function page3() {
     opacity: 0,
   });
 }
-// page1();
-// page2();
-// page3();
+
 function page4() {
   gsap.from(".portf .page-heading", {
     scrollTrigger: {
@@ -281,7 +279,7 @@ function page4() {
     x: 300,
     opacity: 0,
   });
-  gsap.from('.portfolio-btns',{
+  gsap.from(".portfolio-btns", {
     scrollTrigger: {
       scroller: "body",
       trigger: ".portfolio-btns .list",
@@ -290,24 +288,27 @@ function page4() {
       end: "top 40%",
       // markers:true
     },
-    y:-30,
-    x:-50,
+    y: -30,
+    x: -50,
     opacity: 0,
-    stagger:0.3,
-    ease:"none"
-  })
-  gsap.from('.p-card',{
+    stagger: 0.3,
+    ease: "none",
+  });
+  gsap.from(".p-card", {
     scrollTrigger: {
       scroller: "body",
       trigger: ".portfolio-btns .list",
       scrub: 2,
       start: "top 80%",
       end: "top 40%",
-      markers:true
+      // markers:true
     },
-    rotateY:'90deg',
-    stagger:1,
-    duration:2
-  })
+    rotateY: "90deg",
+    stagger: 1,
+    duration: 2,
+  });
 }
+page1();
+page2();
+page3();
 page4();
