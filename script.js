@@ -252,7 +252,7 @@ function page3() {
       // markers:true
     },
     rotateX: "30deg",
-    opacity: 0,
+    // opacity: 0,
   });
 }
 
