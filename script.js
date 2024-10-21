@@ -80,6 +80,7 @@ window.onscroll = () => {
     let offset = sec.offsetTop;
     let height = sec.offsetHeight;
     let id = sec.getAttribute("id");
+    top+=300;
     if (top >= offset && top < offset + height) {
       for (let j = 0; j < navlist.length; j++) {
         Imgs[j].src = ImgLight[j];
@@ -87,18 +88,11 @@ window.onscroll = () => {
       }
       let index = ids.indexOf(id);
       index++;
-      // console.log(index)
-      // console.log(top , offset , height , id);
       Imgs[index].src = ImgDark[index];
       navlist[index].classList.add("active-li");
     }
   });
 };
-
-window.addEventListener("change", () => {
-  console.log("width is ", window.innerWidth);
-});
-console.log("width is ", window.innerWidth);
 //animations
 
 function page1() {
@@ -279,21 +273,21 @@ function page4() {
     x: 300,
     opacity: 0,
   });
-  gsap.from(".portfolio-btns", {
-    scrollTrigger: {
-      scroller: "body",
-      trigger: ".portfolio-btns .list",
-      scrub: 2,
-      start: "top 80%",
-      end: "top 40%",
-      // markers:true
-    },
-    y: -30,
-    x: -50,
-    opacity: 0,
-    stagger: 0.3,
-    ease: "none",
-  });
+  // gsap.from(".portfolio-btns", {
+  //   scrollTrigger: {
+  //     scroller: "body",
+  //     trigger: ".portfolio-btns ul .list",
+  //     scrub: 2,
+  //     start: "top 80%",
+  //     end: "top 40%",
+  //     markers:true
+  //   },
+  //   y: -30,
+  //   // x: -50,
+  //   opacity: 0,
+  //   stagger: 0.3,
+  //   ease: "none",
+  // });
   gsap.from(".p-card", {
     scrollTrigger: {
       scroller: "body",

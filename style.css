@@ -942,10 +942,40 @@ textarea {
   .heading {
     padding-left: 20px;
   }
+  #nav-m{
+    display: none;
+  }
+  .nav-bar li{
+    display: flex;
+    height: 40px;
+    width: 40px;
+  }
 }
 /* for devices width   */
 @media screen and (max-width: 425px) {
   /* animations  */
+  .nav-bar{
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transform: none;
+    border-radius: 0;
+    gap: 0;
+  }
+  .active-li{
+    border:2px solid var(--background);
+  }
+  .active-li .icon {
+    height: 40px;
+    width: 40px;
+    opacity: 1;
+    transition: none;
+  }
+  #up-btn{
+    bottom: 70px;
+  }
   .section .send {
     font-size: 20px;
     padding: 10px 20px;
