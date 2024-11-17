@@ -50,10 +50,12 @@
         border: 2px solid black;
         height: 300px;
         width: 300px;
-        border-radius: 20px;
+        border-radius: 10px;
         display: grid;
         place-items: center;
         display: none;
+        align-items: center;
+        justify-content: center;
       }
     </style>
   </head>
@@ -68,10 +70,17 @@
 
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
     <script>
+      document.getElementById("urlInput").addEventListener("keypress", function(event) {
+        if (event.key === 'Enter') {
+          if (document.getElementById("urlInput").value !== "") {
+            generateQRcode();
+          }
+        }
+      });
       function generateQRcode() {
         var url = document.getElementById("urlInput").value;
         var qrcodeDiv = document.getElementById("qrcode");
-        document.getElementById("qrcode").style.display = 'grid';
+        document.getElementById("qrcode").style.display = 'flex';
         if (url == "") {
           qrcodeDiv.innerHTML = "Please Enter your URL first.";
         } else {
