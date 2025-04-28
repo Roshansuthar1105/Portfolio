@@ -40,19 +40,73 @@ let ImgLight = [];
 for (let i = 0; i < Imgs.length; i++) {
   const element = Imgs[i].src;
   ImgLight[i] = Imgs[i].src;
-  ImgDark[i] = element.split(".png")[0] + "-active.png";
+
+  // Handle both PNG and SVG files
+  if (element.includes(".png")) {
+    ImgDark[i] = element.split(".png")[0] + "-active.png";
+  } else if (element.includes(".svg")) {
+    ImgDark[i] = element.split(".svg")[0] + "-active.svg";
+  }
+}
+
+// Handle certificate icons
+let certIcons = document.querySelectorAll(".cert-icon img");
+let certIconsLight = [];
+let certIconsDark = [];
+for (let i = 0; i < certIcons.length; i++) {
+  const element = certIcons[i].src;
+  certIconsLight[i] = certIcons[i].src;
+  certIconsDark[i] = element.split(".svg")[0] + "-active.svg";
+}
+
+// Handle achievement icons
+let achievementIcons = document.querySelectorAll(".achievement-icon img");
+let achievementIconsLight = [];
+let achievementIconsDark = [];
+for (let i = 0; i < achievementIcons.length; i++) {
+  const element = achievementIcons[i].src;
+  achievementIconsLight[i] = achievementIcons[i].src;
+  achievementIconsDark[i] = element.split(".svg")[0] + "-active.svg";
 }
 for (let i = 0; i < navlist.length; i++) {
   const element = navlist[i];
   element.addEventListener("click", () => {
+    // Reset all navigation icons
     for (let j = 0; j < navlist.length; j++) {
       Imgs[j].src = ImgLight[j];
       navlist[j].classList.remove("active-li");
     }
+
+    // Set active navigation icon
     Imgs[i].src = ImgDark[i];
     navlist[i].classList.add("active-li");
+
+    // Handle certificate icons based on active section
+    if (navlist[i].querySelector('a')?.getAttribute('href') === '#certifications-page') {
+      // Activate certificate icons
+      for (let j = 0; j < certIcons.length; j++) {
+        certIcons[j].src = certIconsDark[j];
+      }
+    } else {
+      // Reset certificate icons
+      for (let j = 0; j < certIcons.length; j++) {
+        certIcons[j].src = certIconsLight[j];
+      }
+    }
+
+    // Handle achievement icons based on active section
+    if (navlist[i].querySelector('a')?.getAttribute('href') === '#achievements-page') {
+      // Activate achievement icons
+      for (let j = 0; j < achievementIcons.length; j++) {
+        achievementIcons[j].src = achievementIconsDark[j];
+      }
+    } else {
+      // Reset achievement icons
+      for (let j = 0; j < achievementIcons.length; j++) {
+        achievementIcons[j].src = achievementIconsLight[j];
+      }
+    }
   });
-  // console.log("nasdkjc");
 }
 let menuButton = document.getElementById("nav-m");
 menuButton.addEventListener("click", () => {
@@ -82,14 +136,42 @@ window.onscroll = () => {
     let id = sec.getAttribute("id");
     top+=300;
     if (top >= offset && top < offset + height) {
+      // Reset all navigation icons
       for (let j = 0; j < navlist.length; j++) {
         Imgs[j].src = ImgLight[j];
         navlist[j].classList.remove("active-li");
       }
+
       let index = ids.indexOf(id);
       index++;
       Imgs[index].src = ImgDark[index];
       navlist[index].classList.add("active-li");
+
+      // Handle certificate icons based on active section
+      if (id === 'certifications-page') {
+        // Activate certificate icons
+        for (let j = 0; j < certIcons.length; j++) {
+          certIcons[j].src = certIconsDark[j];
+        }
+      } else {
+        // Reset certificate icons
+        for (let j = 0; j < certIcons.length; j++) {
+          certIcons[j].src = certIconsLight[j];
+        }
+      }
+
+      // Handle achievement icons based on active section
+      if (id === 'achievements-page') {
+        // Activate achievement icons
+        for (let j = 0; j < achievementIcons.length; j++) {
+          achievementIcons[j].src = achievementIconsDark[j];
+        }
+      } else {
+        // Reset achievement icons
+        for (let j = 0; j < achievementIcons.length; j++) {
+          achievementIcons[j].src = achievementIconsLight[j];
+        }
+      }
     }
   });
 };
