@@ -380,10 +380,224 @@ function page5() {
     opacity: 0,
     scale: 0.95,
   });
+
+  // Animate map heading
+  gsap.from(".map-heading", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: ".map-container",
+      start: "top 85%",
+      end: "top 65%",
+    },
+    y: -20,
+    opacity: 0,
+    delay: 0.3,
+    duration: 0.8,
+    ease: "power2.out"
+  });
+
+  // Animate map iframe with a bounce effect
+  gsap.from(".embed-map-frame", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: ".map-container",
+      start: "top 85%",
+      end: "top 65%",
+    },
+    scale: 0.8,
+    opacity: 0.5,
+    delay: 0.5,
+    duration: 1,
+    ease: "elastic.out(1, 0.5)"
+  });
+}
+
+function page6() {
+  // Experience page animations
+  gsap.from("#experience-page .page-heading", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: "#experience-page .page-heading",
+      scrub: 2,
+      start: "top 80%",
+      end: "top 60%",
+    },
+    x: -200,
+    opacity: 0,
+  });
+
+  gsap.from("#experience-page .page-subheading", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: "#experience-page .page-subheading",
+      scrub: 2,
+      start: "top 80%",
+      end: "top 60%",
+    },
+    x: 300,
+    opacity: 0,
+  });
+
+  // Animate timeline
+  gsap.from(".timeline::before", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: ".timeline",
+      start: "top 80%",
+      end: "bottom 60%",
+      scrub: 1,
+    },
+    height: 0,
+    ease: "power1.inOut",
+  });
+
+  // Animate timeline items with staggered effect
+  gsap.from(".timeline-item", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: ".timeline",
+      start: "top 80%",
+      end: "bottom 60%",
+      scrub: 1,
+    },
+    opacity: 0,
+    y: 50,
+    stagger: 0.3,
+  });
+
+  // Animate timeline dots
+  gsap.from(".timeline-dot", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: ".timeline",
+      start: "top 80%",
+      end: "bottom 60%",
+      scrub: 1,
+    },
+    scale: 0,
+    opacity: 0,
+    stagger: 0.3,
+  });
+}
+
+function page7() {
+  // Certifications page animations
+  gsap.from("#certifications-page .page-heading", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: "#certifications-page .page-heading",
+      scrub: 2,
+      start: "top 80%",
+      end: "top 60%",
+    },
+    x: -200,
+    opacity: 0,
+  });
+
+  gsap.from("#certifications-page .page-subheading", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: "#certifications-page .page-subheading",
+      scrub: 2,
+      start: "top 80%",
+      end: "top 60%",
+    },
+    x: 300,
+    opacity: 0,
+  });
+
+  // Animate certification cards with staggered effect - using one-time animation instead of scrub
+  let certCards = gsap.utils.toArray(".cert-card");
+  certCards.forEach((card, index) => {
+    gsap.set(card, { opacity: 0, y: 50 });
+
+    ScrollTrigger.create({
+      trigger: card,
+      start: "top 85%",
+      onEnter: () => {
+        gsap.to(card, {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          delay: index * 0.1,
+          ease: "power2.out"
+        });
+      },
+      once: true
+    });
+  });
+}
+
+function page8() {
+  // Achievements page animations
+  gsap.from("#achievements-page .page-heading", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: "#achievements-page .page-heading",
+      scrub: 2,
+      start: "top 80%",
+      end: "top 60%",
+    },
+    x: -200,
+    opacity: 0,
+  });
+
+  gsap.from("#achievements-page .page-subheading", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: "#achievements-page .page-subheading",
+      scrub: 2,
+      start: "top 80%",
+      end: "top 60%",
+    },
+    x: 300,
+    opacity: 0,
+  });
+
+  // Animate achievement cards with staggered effect - using one-time animation
+  let achievementCards = gsap.utils.toArray(".achievement-card");
+  achievementCards.forEach((card, index) => {
+    // Set initial state
+    gsap.set(card, { opacity: 0, y: 30, scale: 0.9 });
+
+    // Create one-time animation on scroll
+    ScrollTrigger.create({
+      trigger: card,
+      start: "top 85%",
+      onEnter: () => {
+        // Animate card
+        gsap.to(card, {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.6,
+          delay: index * 0.1,
+          ease: "power2.out"
+        });
+
+        // Animate icon separately
+        let icon = card.querySelector(".achievement-icon");
+        gsap.fromTo(icon,
+          { opacity: 0, scale: 0 },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            delay: index * 0.1 + 0.2,
+            ease: "back.out(1.7)"
+          }
+        );
+      },
+      once: true
+    });
+  });
 }
 
 page1();
 page2();
 page3();
 page4();
-// page5();
+page5();
+page6();
+page7();
+page8();
