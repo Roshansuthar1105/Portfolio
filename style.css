@@ -1694,6 +1694,9 @@ textarea:focus + label {
   overflow: hidden;
   position: relative;
   will-change: transform, box-shadow;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Separate hover transition from GSAP animations */
@@ -1730,29 +1733,32 @@ textarea:focus + label {
   border-radius: 50%;
   margin: 20px auto 10px;
   will-change: transform, background-color;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .achievement-icon img {
   width: 30px;
   height: 30px;
   will-change: transform;
+  transition: transform 0.3s ease;
 }
 
 /* Separate hover transitions from GSAP animations */
 .achievement-card:hover .achievement-icon {
   background-color: rgba(0, 0, 0, 0.05);
   transform: scale(1.1) !important;
-  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .achievement-card:hover .achievement-icon img {
   transform: rotate(10deg) !important;
-  transition: transform 0.3s ease;
 }
 
 .achievement-content {
   padding: 0 20px 20px;
   text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .achievement-content h3 {
@@ -1766,12 +1772,14 @@ textarea:focus + label {
   line-height: 1.6;
   color: var(--black-txt-1);
   font-size: 14px;
+  flex: 1;
 }
 
 .achievement-date {
   font-size: 12px;
   color: var(--black-txt-1);
   font-weight: 500;
+  margin-top: auto;
 }
 /* for devices width   */
 @media screen and (max-width: 1024px) {
@@ -1963,6 +1971,32 @@ textarea:focus + label {
     min-width: 100%;
     padding: 20px 0;
   }
+
+  /* Achievements responsive */
+  .achievements-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .achievement-card {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .achievement-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .achievement-icon img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .achievement-content h3 {
+    font-size: 16px;
+  }
 }
 /* for devices width   */
 @media screen and (min-width: 768px) and (max-width: 991px) {
@@ -1973,6 +2007,16 @@ textarea:focus + label {
 
   .p-card-img {
     height: 180px;
+  }
+
+  /* Achievements responsive for tablets */
+  .achievements-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .achievement-content p {
+    font-size: 13px;
   }
 }
 
@@ -2154,6 +2198,46 @@ textarea:focus + label {
     padding: 8px 15px;
     font-size: 12px;
     margin: 5px;
+  }
+
+  /* Achievements responsive for mobile */
+  .achievements-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .achievement-card {
+    max-width: 100%;
+  }
+
+  .achievement-icon {
+    width: 45px;
+    height: 45px;
+    margin: 15px auto 5px;
+  }
+
+  .achievement-icon img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .achievement-content {
+    padding: 0 15px 15px;
+  }
+
+  .achievement-content h3 {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  .achievement-content p {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .achievement-date {
+    font-size: 11px;
   }
   .cm-card {
     width: 90%;
