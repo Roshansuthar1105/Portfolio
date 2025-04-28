@@ -302,7 +302,88 @@ function page4() {
   //   duration: 2,
   // });
 }
+function page5() {
+  gsap.from("#contact-me-page .page-heading", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: "#contact-me-page .page-heading",
+      scrub: 2,
+      start: "top 80%",
+      end: "top 60%",
+    },
+    x: -200,
+    opacity: 0,
+  });
+
+  gsap.from("#contact-me-page .page-subheading", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: "#contact-me-page .page-subheading",
+      scrub: 2,
+      start: "top 80%",
+      end: "top 60%",
+    },
+    x: 300,
+    opacity: 0,
+  });
+
+  // Animate contact sections
+  gsap.from(".c-cards", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: ".c-cards",
+      start: "top 90%",
+      end: "top 70%",
+      scrub: 1,
+    },
+    x: -50,
+    opacity: 0,
+  });
+
+  // Animate contact cards with staggered effect
+  gsap.from(".cm-card", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: ".cm-card",
+      start: "top 90%",
+      end: "top 70%",
+      scrub: 1,
+    },
+    y: 30,
+    opacity: 0,
+    stagger: 0.2,
+  });
+
+  // Animate form
+  gsap.from(".cform", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: ".cform",
+      start: "top 90%",
+      end: "top 70%",
+      scrub: 1,
+    },
+    x: 50,
+    opacity: 0,
+  });
+
+  // Animate map
+  gsap.from(".map-container", {
+    scrollTrigger: {
+      scroller: "body",
+      trigger: ".map-container",
+      start: "top 90%",
+      end: "top 60%",
+      scrub: 1,
+    },
+    y: 30,
+    opacity: 0,
+    scale: 0.95,
+  });
+}
+
 page1();
 page2();
 page3();
 page4();
+// page5();
