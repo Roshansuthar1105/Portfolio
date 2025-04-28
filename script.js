@@ -288,19 +288,19 @@ function page4() {
   //   stagger: 0.3,
   //   ease: "none",
   // });
-  gsap.from(".p-card", {
-    scrollTrigger: {
-      scroller: "body",
-      trigger: ".portfolio-btns .list",
-      scrub: 2,
-      start: "top 80%",
-      end: "top 40%",
-      // markers:true
-    },
-    rotateY: "90deg",
-    stagger: 1,
-    duration: 2,
-  });
+  // gsap.from(".p-card", {
+  //   scrollTrigger: {
+  //     scroller: "body",
+  //     trigger: ".portfolio-btns .list",
+  //     scrub: 2,
+  //     start: "top 80%",
+  //     end: "top 40%",
+  //     // markers:true
+  //   },
+  //   rotateY: "90deg",
+  //   stagger: 1,
+  //   duration: 2,
+  // });
 }
 page1();
 page2();
