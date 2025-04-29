@@ -757,19 +757,16 @@ img {
   color: var(--black-txt-1);
   font-weight: 500;
 }
-.technologies {
+.technologies-container {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 25px;
-  padding: 40px 20px;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  padding: 40px 0;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
 }
 
-.technologies > div {
+.technologies-heading {
   text-align: center;
   text-transform: capitalize;
   width: 100%;
@@ -778,9 +775,10 @@ img {
   font-weight: 600;
   color: var(--dark-bg);
   position: relative;
+  margin-bottom: 20px;
 }
 
-.technologies > div::after {
+.technologies-heading::after {
   content: '';
   position: absolute;
   bottom: 15px;
@@ -792,7 +790,51 @@ img {
   border-radius: 3px;
 }
 
-.technologies > img {
+.tech-scroll-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Side shading effects */
+.tech-scroll-container::before,
+.tech-scroll-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.tech-scroll-container::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--background) 0%, transparent 100%);
+}
+
+.tech-scroll-container::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--background) 0%, transparent 100%);
+}
+
+.tech-scroll-track {
+  display: flex;
+  width: max-content;
+  gap: 25px;
+  position: relative;
+  padding: 10px 0;
+}
+
+.tech-scroll-content {
+  display: flex;
+  gap: 25px;
+}
+
+.tech-scroll-content img {
   height: 60px;
   width: 60px;
   transition: all 0.3s ease;
@@ -804,11 +846,79 @@ img {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-.technologies > img:hover {
+.tech-scroll-content img:hover {
   transform: translateY(-10px) scale(1.1);
   filter: grayscale(0%);
   opacity: 1;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Text line between rows */
+.tech-scroll-text-container {
+  width: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.03);
+  padding: 10px 0;
+  position: relative;
+}
+
+.tech-scroll-text-container::before,
+.tech-scroll-text-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.tech-scroll-text-container::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--background) 0%, transparent 100%);
+}
+
+.tech-scroll-text-container::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--background) 0%, transparent 100%);
+}
+
+.tech-scroll-text {
+  display: flex;
+  gap: 15px;
+  white-space: nowrap;
+  width: max-content;
+}
+
+.tech-scroll-text span {
+  font-size: 14px;
+  color: var(--dark-bg);
+  font-weight: 500;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.tech-scroll-text span:nth-child(even) {
+  opacity: 0.4;
+  font-size: 12px;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 3));
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(calc(-100% / 3));
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 #portfolio-page {
   border-bottom: 3px solid var(--black-txt-1);
@@ -2360,6 +2470,32 @@ textarea:focus + label {
   .skill {
     width: 90%;
   }
+
+  /* Tech scroll responsive */
+  .tech-scroll-container {
+    gap: 20px;
+  }
+
+  .tech-scroll-container::before,
+  .tech-scroll-container::after,
+  .tech-scroll-text-container::before,
+  .tech-scroll-text-container::after {
+    width: 60px;
+  }
+
+  .tech-scroll-content img {
+    height: 50px;
+    width: 50px;
+    padding: 8px;
+  }
+
+  .tech-scroll-text span {
+    font-size: 12px;
+  }
+
+  .tech-scroll-text span:nth-child(even) {
+    font-size: 10px;
+  }
   .heading {
     font-size: 40px;
   }
@@ -2386,6 +2522,36 @@ textarea:focus + label {
     50% {
       transform: translateY(-10px);
     }
+  }
+
+  /* Tech scroll for smallest screens */
+  .tech-scroll-container {
+    gap: 15px;
+  }
+
+  .tech-scroll-container::before,
+  .tech-scroll-container::after,
+  .tech-scroll-text-container::before,
+  .tech-scroll-text-container::after {
+    width: 40px;
+  }
+
+  .tech-scroll-content img {
+    height: 40px;
+    width: 40px;
+    padding: 6px;
+  }
+
+  .tech-scroll-text span {
+    font-size: 11px;
+  }
+
+  .tech-scroll-text span:nth-child(even) {
+    font-size: 9px;
+  }
+
+  .tech-scroll-text-container {
+    padding: 8px 0;
   }
   .scroll-down {
     position: inherit;
