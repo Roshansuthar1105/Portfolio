@@ -318,17 +318,160 @@ function page3() {
     opacity: 0,
     stagger: 0.3,
   });
-  gsap.from(".technologies img", {
-    scrollTrigger: {
-      scroller: "body",
-      trigger: ".technologies img",
-      scrub: 2,
-      start: "top 90%",
-      end: "top 50%",
-      // markers:true
-    },
-    rotateX: "30deg",
-    // opacity: 0,
+  // Tech scroll animations with GSAP
+  const track1 = document.getElementById('track1');
+  const track2 = document.getElementById('track2');
+  const scrollText = document.getElementById('scrollText');
+
+  // Default animation speeds
+  let track1Speed = 50;
+  let track2Speed = 50;
+  let textSpeed = 80;
+  let lastScrollTop = 0;
+  let scrollDirection = 'down';
+
+  // Initialize GSAP animations
+  function initTechScrollAnimations() {
+    // Clear any existing animations
+    gsap.killTweensOf([track1, track2, scrollText]);
+
+    // Set initial positions
+    gsap.set(track1, { x: 0 });
+    gsap.set(track2, { x: -(track2.offsetWidth / 3) });
+    gsap.set(scrollText, { x: 0 });
+
+    // Create infinite animations
+    animateTrack1();
+    animateTrack2();
+    animateScrollText();
+  }
+
+  function animateTrack1() {
+    gsap.to(track1, {
+      x: -(track1.offsetWidth / 3),
+      duration: track1Speed,
+      ease: "none",
+      repeat: -1,
+      onRepeat: function() {
+        // Reset position for seamless loop
+        gsap.set(track1, { x: 0 });
+      }
+    });
+  }
+
+  function animateTrack2() {
+    gsap.to(track2, {
+      x: 0,
+      duration: track2Speed,
+      ease: "none",
+      repeat: -1,
+      onRepeat: function() {
+        // Reset position for seamless loop
+        gsap.set(track2, { x: -(track2.offsetWidth / 3) });
+      }
+    });
+  }
+
+  function animateScrollText() {
+    gsap.to(scrollText, {
+      x: -(scrollText.offsetWidth / 2),
+      duration: textSpeed,
+      ease: "none",
+      repeat: -1
+    });
+  }
+
+  // Initialize animations when the page loads
+  window.addEventListener('load', initTechScrollAnimations);
+
+  // Update animation based on scroll direction and speed
+  window.addEventListener('scroll', function() {
+    const st = window.scrollY || document.documentElement.scrollTop;
+
+    // Determine scroll direction
+    if (st > lastScrollTop) {
+      // Scrolling down
+      scrollDirection = 'down';
+
+      // Speed up animations and change directions
+      gsap.killTweensOf(track1);
+      gsap.killTweensOf(track2);
+
+      gsap.to(track1, {
+        x: -(track1.offsetWidth / 3),
+        duration: track1Speed * 0.6,
+        ease: "none",
+        repeat: -1
+      });
+
+      gsap.to(track2, {
+        x: 0,
+        duration: track2Speed * 0.6,
+        ease: "none",
+        repeat: -1
+      });
+
+    } else if (st < lastScrollTop) {
+      // Scrolling up
+      scrollDirection = 'up';
+
+      // Speed up animations and reverse directions
+      gsap.killTweensOf(track1);
+      gsap.killTweensOf(track2);
+
+      gsap.to(track1, {
+        x: 0,
+        duration: track1Speed * 0.6,
+        ease: "none",
+        repeat: -1
+      });
+
+      gsap.to(track2, {
+        x: -(track2.offsetWidth / 3),
+        duration: track2Speed * 0.6,
+        ease: "none",
+        repeat: -1
+      });
+    }
+
+    // Store current scroll position
+    lastScrollTop = st <= 0 ? 0 : st;
+
+    // Reset animation speed after scrolling stops
+    clearTimeout(window.scrollTimeout);
+    window.scrollTimeout = setTimeout(function() {
+      gsap.killTweensOf([track1, track2]);
+
+      if (scrollDirection === 'down') {
+        gsap.to(track1, {
+          x: -(track1.offsetWidth / 3),
+          duration: track1Speed,
+          ease: "none",
+          repeat: -1
+        });
+
+        gsap.to(track2, {
+          x: 0,
+          duration: track2Speed,
+          ease: "none",
+          repeat: -1
+        });
+      } else {
+        gsap.to(track1, {
+          x: 0,
+          duration: track1Speed,
+          ease: "none",
+          repeat: -1
+        });
+
+        gsap.to(track2, {
+          x: -(track2.offsetWidth / 3),
+          duration: track2Speed,
+          ease: "none",
+          repeat: -1
+        });
+      }
+    }, 200);
   });
 }
 
