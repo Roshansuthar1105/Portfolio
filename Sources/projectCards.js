@@ -71,28 +71,24 @@ function createProjectCard(project, index) {
 function renderProjects(projectsToRender) {
   if (!projectContainer) return;
 
-  // Filter projects if needed
+  // Filter logic
   const filteredProjects = currentFilter === 'all'
     ? projectsToRender
     : projectsToRender.filter(project => {
-        // Filter by category
-        if (project.category === currentFilter) return true;
+        // Ensure project.category is treated as an array
+        const categories = Array.isArray(project.category) ? project.category : [project.category];
 
-        // Filter by tags if category doesn't match
-        if (project.tags && project.tags.includes(currentFilter)) return true;
-
-        return false;
+        // Match against category or tags
+        return categories.includes(currentFilter) || (project.tags && project.tags.includes(currentFilter));
       });
 
-  // Generate HTML for all projects
+  // Render cards
   const projectsHTML = filteredProjects.map((project, index) => createProjectCard(project, index)).join('');
-
-  // Update the DOM
   projectContainer.innerHTML = projectsHTML || '<div class="no-projects">No projects found matching this filter.</div>';
 
-  // Add event listeners to the share buttons
+  // Icon event listeners (GitHub/share)
   document.querySelectorAll('.p-icon').forEach(icon => {
-    icon.addEventListener('click', function() {
+    icon.addEventListener('click', function () {
       const action = this.getAttribute('data-action');
       const url = this.getAttribute('data-url');
 
@@ -103,12 +99,8 @@ function renderProjects(projectsToRender) {
         const shareUrl = this.getAttribute('data-url');
 
         if (navigator.share) {
-          navigator.share({
-            title: title,
-            url: shareUrl
-          }).catch(console.error);
+          navigator.share({ title, url: shareUrl }).catch(console.error);
         } else {
-          // Fallback for browsers that don't support Web Share API
           const tempInput = document.createElement('input');
           document.body.appendChild(tempInput);
           tempInput.value = shareUrl;
@@ -121,6 +113,7 @@ function renderProjects(projectsToRender) {
     });
   });
 }
+
 
 // Set up filter buttons
 function setupFilterButtons() {

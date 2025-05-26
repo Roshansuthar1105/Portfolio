@@ -1,8 +1,39 @@
+// let list = document.querySelectorAll(".list");
+// let items = document.querySelectorAll(".p-card");
+// let count = document.getElementById("count");
+// console.log(items.length);
+// console.log(list.length);
+// for (let i = 0; i < list.length; i++) {
+//   list[i].addEventListener("click", function () {
+//     let x = 0;
+//     for (let j = 0; j < list.length; j++) {
+//       list[j].classList.remove("active");
+//     }
+//     this.classList.add("active");
+//     let dataFilter = this.getAttribute("data-filter");
+//     for (let k = 0; k < items.length; k++) {
+//       items[k].classList.add("hide");
+//       items[k].classList.remove("active");
+
+//       if (
+//         items[k].getAttribute("data-item") == dataFilter ||
+//         dataFilter == "all"
+//       ) {
+//         items[k].classList.add("p-card");
+//         items[k].classList.remove("hide");
+//         x++;
+//       }
+//     }
+//     // count.innerText = `${x} Items Found`;
+//     // if (dataFilter == "all") {
+//     //   count.innerText = ``;
+//     // }
+//   });
+// }
 let list = document.querySelectorAll(".list");
 let items = document.querySelectorAll(".p-card");
 let count = document.getElementById("count");
-console.log(items.length);
-console.log(list.length);
+
 for (let i = 0; i < list.length; i++) {
   list[i].addEventListener("click", function () {
     let x = 0;
@@ -10,26 +41,26 @@ for (let i = 0; i < list.length; i++) {
       list[j].classList.remove("active");
     }
     this.classList.add("active");
-    let dataFilter = this.getAttribute("data-filter");
-    for (let k = 0; k < items.length; k++) {
-      items[k].classList.add("hide");
-      items[k].classList.remove("active");
 
-      if (
-        items[k].getAttribute("data-item") == dataFilter ||
-        dataFilter == "all"
-      ) {
-        items[k].classList.add("p-card");
-        items[k].classList.remove("hide");
+    let dataFilter = this.getAttribute("data-filter");
+
+    items.forEach((item) => {
+      let categories = JSON.parse(item.getAttribute("data-item"));
+      item.classList.add("hide");
+      item.classList.remove("active");
+
+      if (dataFilter === "all" || categories.includes(dataFilter)) {
+        item.classList.remove("hide");
+        item.classList.add("p-card");
         x++;
       }
-    }
-    // count.innerText = `${x} Items Found`;
-    // if (dataFilter == "all") {
-    //   count.innerText = ``;
-    // }
+    });
+
+    // Optional: show count
+    // count.innerText = dataFilter === "all" ? "" : `${x} Items Found`;
   });
 }
+
 // Add this to your existing script.js file
 
 let navlist = document.querySelectorAll(".nav-bar li");
