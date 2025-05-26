@@ -231,10 +231,10 @@
 }
 
 .p-icon {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background-color: var(--container-color-alt);
+  background-color: var(--dark-bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -242,13 +242,14 @@
   transition: background-color 0.2s ease;
 }
 
-.p-icon:hover {
-  background-color: var(--first-color-lighter);
+.p-icon:hover img {
+  transform: scale(1.2);
 }
-
 .p-icon img {
-  width: 16px;
-  height: 16px;
+  filter: invert(1) brightness(10);
+  width: 26px;
+  height: 26px;
+  transition: all 0.3s ease;
 }
 
 /* No Projects Message */
