@@ -1209,11 +1209,15 @@ img {
 
 .portfolio-btns {
   margin: 20px 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .portfolio-btns ul {
   display: flex;
   width: 100%;
+  max-width: 800px;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
