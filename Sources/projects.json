@@ -14,6 +14,30 @@
     },
     {
       "id": 2,
+      "title": "Movieflix Ticket Booking",
+      "category": ["mern", "management"],
+      "image": "Sources/Projects/images/movieflix.png",
+      "description": "An event ticket booking system with seat selection and payment integration for college events.",
+      "demoLink": "https://themovieflixs.netlify.app",
+      "githubLink": "https://github.com/Roshansuthar1105/CSI-ticket-booking",
+      "icon": "Sources/menuIcon/ticket.svg",
+      "technologies": ["React", "Node.js","Express", "MongoDB", "Razorpay API","Tailwind CSS"],
+      "tags": ["mern", "payment-gateway", "internship-project"]
+    },
+    {
+      "id": 3,
+      "title": "Dry Fruit Junction",
+      "category": ["e-commerce", "mern"],
+      "image": "Sources/Projects/images/dryfruit-junction.png",
+      "description": "E-commerce platform specializing in premium dry fruits sweets with cart functionality and admin dashboard.",
+      "demoLink": "https://dryfruitjunction.in",
+      "githubLink": "https://github.com/Roshansuthar1105/DryFruitJunction",
+      "icon": "Sources/menuIcon/cart.svg",
+      "technologies": ["React", "Redux", "Realtime","Tailwind CSS","Express","Node.js","MongoDB"],
+      "tags": ["e-commerce", "mern", "react","freelance"]
+    },
+    {
+      "id": 4,
       "title": "Codify",
       "category": ["mern", "education"],
       "image": "Sources/Projects/images/codify.png",
@@ -23,9 +47,20 @@
       "icon": "Sources/menuIcon/terminal.svg",
       "technologies": ["MongoDB", "Express", "React", "Node.js"],
       "tags": ["mern", "fullstack", "education", "coding", "interactive"]
+    },{
+      "id": 5,
+      "title": "Pincode Address",
+      "category": ["utility","tools","package"],
+      "image": "Sources/Projects/images/pincode-address.png",
+      "description": "Real-time Indian address lookup using postal pincode API with auto-complete.",
+      "demoLink": "https://pincode-address.netlify.app/",
+      "githubLink": "https://github.com/Roshansuthar1105/pincode-address",
+      "icon": "Sources/menuIcon/map.svg",
+      "technologies": ["JavaScript", "PostalAPI", "Debounce Search","npm package"],
+      "tags": ["api-integration", "npm package"]
     },
     {
-      "id": 3,
+      "id": 6,
       "title": "OMEX",
       "category": ["ai", "tools", "mern", "realtime"],
       "image": "Sources/Projects/images/omex.png",
@@ -37,7 +72,7 @@
       "tags": ["ai", "gemini", "code-optimization", "realtime", "fullstack"]
     },
     {
-      "id": 4,
+      "id": 7,
       "title": "Agri Predict",
       "category": ["ai", "mini-projects", "flask"],
       "image": "Sources/Projects/images/agripredict.png",
@@ -49,7 +84,7 @@
       "tags": ["ai", "flask", "crop-recommendation", "smart-agriculture", "python"]
     },
     {
-      "id": 5,
+      "id": 8,
       "title": "CGPA Calculator",
       "category": ["react-projects", "education", "mini-projects","tools"],
       "image": "Sources/Projects/images/cgpa.png",
@@ -61,7 +96,7 @@
       "tags": ["reactjs", "cgpa", "result", "cgpa-calculator", "tailwindcss"]
     },
     {
-      "id": 6,
+      "id": 9,
       "title": "Campus Cloud",
       "category": ["mern", "management", "tools"],
       "image": "Sources/Projects/images/campuscloud.png",
@@ -73,7 +108,7 @@
       "tags": ["mern", "education", "role-management", "quizzes", "tailwindcss"]
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "Role Switcher Extension",
       "category": ["extension", "tools", "mini-projects"],
       "image": "Sources/Projects/images/roleswitcher.png",
@@ -85,7 +120,7 @@
       "tags": ["chrome-extension", "javascript", "role-switching", "developer-tools"]
     },
     {
-      "id": 8,
+      "id": 11,
       "title": "Zunzo",
       "category": ["mern", "e-commerce", "tools"],
       "image": "Sources/Projects/images/zunzo.png",
@@ -97,7 +132,19 @@
       "tags": ["mern", "ecommerce", "jwt-authentication", "fullstack", "realtime"]
     },
     {
-      "id": 9,
+      "id": 12,
+      "title": "Smart Todo App",
+      "category": ["react-projects","tools"],
+      "image": "Sources/Projects/images/todo-app.png",
+      "description": "Task management application with Add, Mark as complete, Edit, Delete task",
+      "demoLink": "https://csi-to-do-list.netlify.app/",
+      "githubLink": "https://github.com/Roshansuthar1105/CSI-To-Do-list-app",
+      "icon": "Sources/menuIcon/checklist.svg",
+      "technologies": ["React", "LocalStorage", "Tailwind CSS","react-hot-toast"],
+      "tags": ["toast", "localstorage"]
+    },
+    {
+      "id": 13,
       "title": "Jharoka : Image Gallery",
       "category": ["react-projects","webpage"],
       "image": "Sources/Projects/images/jharoka.png",
@@ -109,7 +156,7 @@
       "tags": ["react-projects", "gallery", "images", "firebase", "masonry"]
     },
     {
-      "id": 10,
+      "id": 14,
       "title": "Cash Track",
       "category": ["react-projects","tools","webpage"],
       "image": "Sources/Projects/images/cash_track.png",
@@ -121,7 +168,7 @@
       "tags": ["react-projects", "finance", "budget", "tracker", "charts"]
     },
     {
-      "id": 11,
+      "id": 15,
       "title": "BitWise Learning",
       "category": ["webpage","mini-projects"],
       "image": "Sources/Projects/images/bitwise-learning.png",
@@ -133,7 +180,7 @@
       "tags": ["website", "education", "programming", "learning"]
     },
     {
-      "id": 12,
+      "id": 16,
       "title": "Wizardzs",
       "category": ["react-projects"],
       "image": "Sources/Projects/images/wizardz.png",
@@ -145,7 +192,7 @@
       "tags": ["react-projects", "ui-library", "components", "themes"]
     },
     {
-      "id": 13,
+      "id": 17,
       "title": "To Do List App",
       "category": ["tools","react-projects"],
       "image": "Sources/Projects/images/to-do.png",
